@@ -13,21 +13,21 @@ public  class JDBCUtils {
     private static Logger logger = Logger.getLogger(JDBCUtils.class);
 
     private static Properties properties = new Properties();
-//    static {
-//
-//        InputStream inputStream = null;
-//        try {
-//            inputStream = new FileInputStream(new File("src/main/resources/config/jdbc.properties"));
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//        try {
-//            properties.load(inputStream);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
+    static {
+
+        InputStream inputStream = null;
+        try {
+            inputStream = new FileInputStream(new File("src/main/resources/jdbc.properties"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            properties.load(inputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
 
     /**
