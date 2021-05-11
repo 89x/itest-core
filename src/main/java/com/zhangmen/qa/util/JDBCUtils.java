@@ -8,6 +8,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+/**
+ * ww
+ */
 
 public  class JDBCUtils {
     private static Logger logger = Logger.getLogger(JDBCUtils.class);
