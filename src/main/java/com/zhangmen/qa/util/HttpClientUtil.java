@@ -154,6 +154,7 @@ public class HttpClientUtil {
                 e.printStackTrace();
             }
         }
+        System.out.println(result);
         return result;
     }
 
@@ -237,6 +238,7 @@ public class HttpClientUtil {
                 e.printStackTrace();
             }
         }
+        System.out.println(result);
         return result;
     }
 
@@ -283,6 +285,7 @@ public class HttpClientUtil {
                 e.printStackTrace();
             }
         }
+        System.out.println(result);
         return result;
     }
 

@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 public class DataProviderUtil {
 
     /**
-     * csv 文件名字建议用类名+方法名来编辑，后期会改为自动获取
+     * 根据方法名进行获取，需要每一个方法名都不一样
      * @param method
      * @return
      * @throws IOException
@@ -16,7 +16,7 @@ public class DataProviderUtil {
 
     @DataProvider(name = "testCsvData")
     public Object[][] testCsvData(Method method) throws IOException {
-        return CsvReaderUtil.getTestData("src/main/resources/testdata/1.csv");
+        return CsvReaderUtil.getTestData("src/main/resources/testdata/"+method.getName()+".csv");
     }
 
 }
