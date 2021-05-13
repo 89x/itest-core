@@ -94,7 +94,7 @@ public class HttpClientUtils {
         }finally{
             close(resp);
         }
-        System.out.println(body);
+        Utils.info(body);
         return body;
     }
     /**

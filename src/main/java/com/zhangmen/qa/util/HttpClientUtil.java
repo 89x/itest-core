@@ -1,6 +1,7 @@
 package com.zhangmen.qa.util;
 
 
+import com.zhangmen.qa.common.Utils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -238,7 +239,7 @@ public class HttpClientUtil {
                 e.printStackTrace();
             }
         }
-        System.out.println(result);
+        Utils.info(result);
         return result;
     }
 
@@ -285,7 +286,7 @@ public class HttpClientUtil {
                 e.printStackTrace();
             }
         }
-        System.out.println(result);
+        Utils.info(result);
         return result;
     }
 
