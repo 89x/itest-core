@@ -1,5 +1,6 @@
 package com.zhangmen.qa.util;
 
+import com.zhangmen.qa.common.Utils;
 import org.apache.log4j.Logger;
 
 import java.io.*;
@@ -9,7 +10,7 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * ww
+ * sql 操作工具类
  */
 
 public  class JDBCUtils {
@@ -53,6 +54,7 @@ public  class JDBCUtils {
                 preparedStatement.setObject(i+1,values[i]);
             }
             //执行sql
+            Utils.info("执行sql======="+preparedStatement);
             ResultSet resultSet =  preparedStatement.executeQuery();
 
             ResultSetMetaData mateData =resultSet.getMetaData();
@@ -71,9 +73,47 @@ public  class JDBCUtils {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        Utils.info("执行sql结果 Map"+ColumnLabelAndValues);
         return ColumnLabelAndValues;
 
     }
+
+    /***
+     * 增删改
+     * @param sql
+     * @param values
+     * @return
+     */
+
+    public  static int executeUpdate(String sql , Object ... values) {
+        int num = 0;
+
+        try {
+            PreparedStatement preparedStatement = null;
+            preparedStatement = getConnection().prepareStatement(sql);
+
+            //传递参数
+            for (int i = 0;i<values.length;i++) {
+                preparedStatement.setObject(i+1,values[i]);
+            }
+            Utils.info("执行sql======="+preparedStatement);
+
+            //执行sql
+            num  =  preparedStatement.executeUpdate();
+            Utils.info("执行成功行数======="+num);
+
+
+
+
+            preparedStatement.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return num;
+
+    }
+
 
     /**
      * 获取数据库链接
