@@ -4,6 +4,7 @@ import java.util.Random;
 
 /***
  * 生成随机数工具类
+ * barry
  */
 public class RandomNum {
 

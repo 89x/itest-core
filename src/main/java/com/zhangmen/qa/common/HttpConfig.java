@@ -14,6 +14,7 @@ import java.util.Map;
 
 /**
  * 请求配置类
+ * barry
  */
 public class HttpConfig {
 

@@ -2,6 +2,10 @@ package com.zhangmen.qa.util;
 
 import org.apache.commons.lang3.StringUtils;
 
+/***
+ * 字符串工具类
+ * barry
+ */
 public class StringUtil {
     /**
      * 判断多个字符串都不为空

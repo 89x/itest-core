@@ -39,7 +39,8 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * barry.2021-03-06  version  0.01
+ * barry
+ * http请求
  */
 
 public class HttpClientUtil {

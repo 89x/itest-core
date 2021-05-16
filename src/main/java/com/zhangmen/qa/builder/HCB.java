@@ -29,6 +29,7 @@ import java.net.UnknownHostException;
 
 /**
  * httpclient创建者，初始化 请求
+ * barry
  *
  */
 public class HCB extends HttpClientBuilder {

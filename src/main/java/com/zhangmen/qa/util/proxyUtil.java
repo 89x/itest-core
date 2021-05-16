@@ -4,6 +4,10 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.util.Date;
 
+/***
+ * 动态代理
+ * barry
+ */
 public class proxyUtil implements InvocationHandler {
 
     private Object target;

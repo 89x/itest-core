@@ -4,6 +4,7 @@ import org.apache.http.Header;
 
 /***
  * 上下文，自动传入
+ * barry
  */
 public class TextContext {
 

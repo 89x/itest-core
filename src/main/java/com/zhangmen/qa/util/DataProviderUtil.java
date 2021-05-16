@@ -5,6 +5,10 @@ import org.testng.annotations.DataProvider;
 import java.io.IOException;
 import java.lang.reflect.Method;
 
+/**
+ * 数据驱动，主DataProvider
+ * barry
+ */
 public class DataProviderUtil {
 
     /**

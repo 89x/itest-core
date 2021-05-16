@@ -7,6 +7,10 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+/***
+ * csv 读取类
+ * barry
+ */
 public class CsvReaderUtil {
     public static Object[][] getTestData(String fileName) throws IOException {
 

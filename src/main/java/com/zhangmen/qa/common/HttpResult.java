@@ -10,6 +10,7 @@ import java.io.Serializable;
 
 /**
  * 请求结果
+ * barry
  */
 public class HttpResult implements Serializable{
 

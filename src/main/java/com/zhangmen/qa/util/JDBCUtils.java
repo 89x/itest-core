@@ -11,7 +11,7 @@ import java.util.Properties;
 
 /***
  * 数据库查询类
- *
+ * barry
  */
 
 public  class JDBCUtils {

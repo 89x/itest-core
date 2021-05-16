@@ -1,5 +1,9 @@
 package com.zhangmen.qa.util;
 
+/***
+ * 随机数
+ * barry
+ */
 public class RandomStringUtils {
 
     /**

@@ -19,6 +19,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/***
+ * http 请求类
+ */
 public class HttpClientUtils {
 
 

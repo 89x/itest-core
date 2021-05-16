@@ -19,6 +19,7 @@ import java.security.cert.CertificateException;
 
 /**
  * 设置ssl
+ * barry
  * 
  */
 public class SSLs {

@@ -10,6 +10,7 @@ import java.util.Map;
 
 /**
  * 创建HttpReqHead
+ * barry
  */
 public class HttpHeader {
     private static Logger logger = Logger.getLogger(HttpHeader.class);

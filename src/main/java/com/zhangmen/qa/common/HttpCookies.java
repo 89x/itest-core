@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 
 /**
  * 封装Cookie
+ * barry
  */
 public class HttpCookies {
 

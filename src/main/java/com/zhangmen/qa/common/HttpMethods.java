@@ -3,6 +3,7 @@ package com.zhangmen.qa.common;
 
 /**
  * 枚举HttpMethods方法
+ * barry
  */
 public enum HttpMethods {
 
