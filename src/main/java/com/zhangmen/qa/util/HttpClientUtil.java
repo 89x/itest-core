@@ -6,6 +6,7 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.StatusLine;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.ServiceUnavailableRetryStrategy;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -35,6 +36,7 @@ import javax.net.ssl.SSLContext;
 import java.io.IOException;
 import java.net.URI;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -101,6 +103,21 @@ public class HttpClientUtil {
             e.printStackTrace();
             logger.error("初始化连接池-------->>>>失败");
         }
+    }
+    public CloseableHttpResponse doGet(String url, HashMap<String, String> headerMap) throws ClientProtocolException, IOException {
+
+        //创建一个可关闭的HttpClient对象
+        CloseableHttpClient httpclient = HttpClients.createDefault();
+        //创建一个HttpGet的请求对象
+        HttpGet httpget = new HttpGet(url);
+        //加载请求头到httpget对象
+        for (Map.Entry<String, String> entry : headerMap.entrySet()) {
+            httpget.addHeader(entry.getKey(), entry.getValue());
+        }
+        //执行请求,相当于postman上点击发送按钮，然后赋值给HttpResponse对象接收
+        CloseableHttpResponse httpResponse = httpclient.execute(httpget);
+
+        return httpResponse;
     }
 
 
@@ -265,6 +282,41 @@ public class HttpClientUtil {
             // 创建Post
             HttpPost httpPost = new HttpPost(url);
 
+            // 封装请求参数
+            StringEntity stringEntity = new StringEntity(jsonStr, CHAR_SET);
+            // 设置请求参数封装形式
+            stringEntity.setContentType(CONTENT_TYPE_JSON);
+            httpPost.setEntity(stringEntity);
+            httpResponse = httpClient.execute(httpPost);
+            int code = httpResponse.getStatusLine().getStatusCode();
+            logger.info(code);
+            if (httpResponse.getStatusLine().getStatusCode() == 200) {
+                result = EntityUtils.toString(httpResponse.getEntity(), CHAR_SET);
+                logger.info(result);
+                return result;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                CloseResource(httpClient, httpResponse);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        Utils.info(result);
+        return result;
+    }
+    public static String doPostJson(String url, String jsonStr,HashMap<String,String> headerMap) {
+        String result = "";
+        CloseableHttpClient httpClient = getCloseableHttpClient();
+        CloseableHttpResponse httpResponse = null;
+        try {
+            // 创建Post
+            HttpPost httpPost = new HttpPost(url);
+            for(Map.Entry<String, String> entry : headerMap.entrySet()) {
+                httpPost.addHeader(entry.getKey(), entry.getValue());
+            }
             // 封装请求参数
             StringEntity stringEntity = new StringEntity(jsonStr, CHAR_SET);
             // 设置请求参数封装形式
